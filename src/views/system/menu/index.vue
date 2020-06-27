@@ -103,6 +103,7 @@
       ref="table"
       v-loading="crud.loading"
       lazy
+      border
       :load="getMenus"
       :data="crud.data"
       :tree-props="{children: 'children', hasChildren: 'hasChildren'}"
@@ -118,7 +119,7 @@
           <svg-icon :icon-class="scope.row.icon ? scope.row.icon : ''" />
         </template>
       </el-table-column>
-      <el-table-column prop="menuSort" align="center" label="排序">
+      <el-table-column prop="menuSort" align="center" width="50" label="排序">
         <template slot-scope="scope">
           {{ scope.row.menuSort }}
         </template>

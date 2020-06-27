@@ -413,15 +413,17 @@ function CRUD(options) {
     resetDataStatus() {
       const dataStatus = {}
       function resetStatus(datas) {
-        datas.forEach(e => {
-          dataStatus[crud.getDataId(e)] = {
-            delete: 0,
-            edit: 0
-          }
-          if (e.children) {
-            resetStatus(e.children)
-          }
-        })
+        if (datas.length > 0) {
+          datas.forEach(e => {
+            dataStatus[crud.getDataId(e)] = {
+              delete: 0,
+              edit: 0
+            }
+            if (e.children) {
+              resetStatus(e.children)
+            }
+          })
+        }
       }
       resetStatus(crud.data)
       crud.dataStatus = dataStatus
